@@ -17,6 +17,7 @@
 		376BE48519941C3C003B3131 /* WelcomeTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BE48419941C3C003B3131 /* WelcomeTableViewHeaderView.swift */; };
 		376BE489199420F2003B3131 /* ArrayDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BE488199420F2003B3131 /* ArrayDataSource.swift */; };
 		376BE48C19942A5A003B3131 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BE48B19942A5A003B3131 /* UIColorExtension.swift */; };
+		376BE48F1994A592003B3131 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BE48E1994A592003B3131 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		376BE48619941E58003B3131 /* ObjC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjC-Bridging-Header.h"; sourceTree = "<group>"; };
 		376BE488199420F2003B3131 /* ArrayDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayDataSource.swift; sourceTree = "<group>"; };
 		376BE48B19942A5A003B3131 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		376BE48E1994A592003B3131 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		985F6F7225F64F5EB92B2B6B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				376BE47B19941A68003B3131 /* BaseViewControllers */,
+				376BE48D1994A537003B3131 /* RegisterViewController */,
 				376BE47A19941A4C003B3131 /* WelcomeViewController */,
 				376BE47619941A3F003B3131 /* AppDelegate.swift */,
 			);
@@ -213,6 +216,14 @@
 			);
 			name = "Class Extensions";
 			path = "Classes/Class Extensions";
+			sourceTree = "<group>";
+		};
+		376BE48D1994A537003B3131 /* RegisterViewController */ = {
+			isa = PBXGroup;
+			children = (
+				376BE48E1994A592003B3131 /* RegisterViewController.swift */,
+			);
+			path = RegisterViewController;
 			sourceTree = "<group>";
 		};
 		F32FC35C63554DE99312986A /* Frameworks */ = {
@@ -359,6 +370,7 @@
 				376BE47F19941A96003B3131 /* BaseTableViewController.swift in Sources */,
 				376BE48C19942A5A003B3131 /* UIColorExtension.swift in Sources */,
 				376BE48119941ABB003B3131 /* WelcomeViewController.swift in Sources */,
+				376BE48F1994A592003B3131 /* RegisterViewController.swift in Sources */,
 				376BE47919941A3F003B3131 /* AppDelegate.swift in Sources */,
 				376BE48519941C3C003B3131 /* WelcomeTableViewHeaderView.swift in Sources */,
 				376BE489199420F2003B3131 /* ArrayDataSource.swift in Sources */,
@@ -472,6 +484,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Pecan/ObjC-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -485,6 +498,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Pecan/ObjC-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

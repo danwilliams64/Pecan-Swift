@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Dan Williams. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension UIColor {
     class func customTintColor() -> UIColor {

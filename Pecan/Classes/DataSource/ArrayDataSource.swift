@@ -8,7 +8,7 @@
 
 class ArrayDataSource: NSObject, UITableViewDataSource {
     
-    typealias ArrayDataSourceTableViewConfigurationBlock = (cell: AnyObject, item: AnyObject) -> ()
+    typealias ArrayDataSourceTableViewConfigurationBlock = (cell: UITableViewCell, item: AnyObject) -> ()
     
     var items: [AnyObject] = []
     var cellIdentifier: String = ""
