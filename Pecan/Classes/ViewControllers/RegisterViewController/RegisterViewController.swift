@@ -12,8 +12,10 @@ class RegisterViewController: BaseTableViewController {
     
     // MARK: - Properties
     var dataSource: ArrayDataSource = {
-        let dataSource = ArrayDataSource(items: ["Email", "Password"], cellIdentifier: "RegisterCell", configurationBlock: { (cell, item) -> () in
-            cell.textLabel.text = item as String
+        let dataSource = ArrayDataSource(items: ["Email", "Password"], cellIdentifier: TextEntryCell.reuseIdentifier(), configurationBlock: { (cell, item) -> () in
+            let textEntryCell = cell as TextEntryCell
+            textEntryCell.cellLabel.text = item as String
+            textEntryCell.textField.placeholder = item as String
         })
         
         return dataSource
@@ -32,7 +34,8 @@ class RegisterViewController: BaseTableViewController {
     // MARK: - Private
     
     func setUpTableView() {
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "RegisterCell")
+        tableView.registerClass(TextEntryCell.self, forCellReuseIdentifier: TextEntryCell.reuseIdentifier())
         tableView.dataSource = dataSource
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
 }
