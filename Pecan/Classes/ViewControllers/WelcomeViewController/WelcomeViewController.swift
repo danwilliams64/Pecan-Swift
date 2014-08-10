@@ -8,6 +8,9 @@
 
 import UIKit
 
+let kTableHeaderViewHeightRegular: CGFloat = 275.0
+let kTableHeaderViewHeightCompact: CGFloat = 150.0
+
 class WelcomeViewController: BaseTableViewController, UITableViewDelegate {
     
     // MARK: - Properties
@@ -44,9 +47,9 @@ class WelcomeViewController: BaseTableViewController, UITableViewDelegate {
         var newHeaderHeight: CGFloat = 0;
         
         if traitCollection.verticalSizeClass == .Compact {
-            newHeaderHeight = 100.0
+            newHeaderHeight = kTableHeaderViewHeightCompact
         } else {
-            newHeaderHeight = 250.0
+            newHeaderHeight = kTableHeaderViewHeightRegular
         }
         
         tableHeaderView.frame = CGRectMake(0, 0, CGRectGetWidth(tableHeaderView.frame), newHeaderHeight)
