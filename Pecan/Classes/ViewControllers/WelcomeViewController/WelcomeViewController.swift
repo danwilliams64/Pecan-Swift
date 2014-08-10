@@ -38,6 +38,21 @@ class WelcomeViewController: BaseTableViewController, UITableViewDelegate {
         tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow(), animated: true)
     }
     
+    override func traitCollectionDidChange(previousTraitCollection: UITraitCollection!) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        let tableHeaderView = tableView.tableHeaderView as WelcomeTableViewHeaderView
+        var newHeaderHeight: CGFloat = 0;
+        
+        if traitCollection.verticalSizeClass == .Compact {
+            newHeaderHeight = 100.0
+        } else {
+            newHeaderHeight = 250.0
+        }
+        
+        tableHeaderView.frame = CGRectMake(0, 0, CGRectGetWidth(tableHeaderView.frame), newHeaderHeight)
+        tableView.tableHeaderView = tableHeaderView // Needs to re-assign this for the height change to take effect
+    }
+    
     // MARK: - Private
 
     private func setUpTableView() {
