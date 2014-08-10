@@ -29,6 +29,7 @@ class RegisterViewController: BaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Create", style: .Done, target: self, action: "createButtonTapped:")
     }
     
     // MARK: - Private
@@ -37,5 +38,9 @@ class RegisterViewController: BaseTableViewController {
         tableView.registerClass(TextEntryCell.self, forCellReuseIdentifier: TextEntryCell.reuseIdentifier())
         tableView.dataSource = dataSource
         tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    func createButtonTapped(sender: UIBarButtonItem) {
+        NSLog("Button title: \(sender.title)")
     }
 }

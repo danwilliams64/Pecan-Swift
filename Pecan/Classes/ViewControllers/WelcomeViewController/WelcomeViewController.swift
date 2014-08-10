@@ -51,7 +51,7 @@ class WelcomeViewController: BaseTableViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         switch indexPath.row {
-            case 0:
+            case 1:
                 splitViewController .showDetailViewController(RegisterViewController(), sender: nil)
             default:
                 println("Default")

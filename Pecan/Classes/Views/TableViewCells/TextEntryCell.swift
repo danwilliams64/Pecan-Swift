@@ -26,25 +26,19 @@ class TextEntryCell: BaseTableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(cellLabel)
         contentView.addSubview(textField)
+        selectionStyle = .None
     }
     
     override func updateConstraints() {
         super.updateConstraints()
         
-        UIView.autoSetPriority(1000) {
-            self.cellLabel.autoSetContentCompressionResistancePriorityForAxis(.Vertical)
-            self.textField.autoSetContentCompressionResistancePriorityForAxis(.Vertical)
-        }
-        
         cellLabel.autoPinEdge(.Leading, toEdge: .Leading, ofView: contentView, withOffset:12)
         cellLabel.autoPinEdge(.Top, toEdge: .Top, ofView: contentView, withOffset: 10)
         cellLabel.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: contentView, withOffset: -10)
         cellLabel.autoSetDimension(.Width, toSize: 100)
-        cellLabel.autoSetDimension(.Height, toSize: 24)
 
         
         textField.autoPinEdge(.Left, toEdge: .Right, ofView: cellLabel, withOffset:10)
-        textField.autoAlignAxis(.Horizontal, toSameAxisOfView: contentView)
         textField.autoPinEdge(.Right, toEdge: .Right, ofView: contentView, withOffset:-10)
         textField.autoSetDimension(.Height, toSize: 44)
     }
