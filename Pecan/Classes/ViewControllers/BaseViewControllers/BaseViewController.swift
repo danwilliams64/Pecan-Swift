@@ -9,5 +9,8 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-
+    
+    required init(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
+    }
 }

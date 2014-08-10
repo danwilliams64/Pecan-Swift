@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     lazy var splitViewController: UISplitViewController = {
         let splitViewController = UISplitViewController(nibName: nil, bundle: nil)
-        splitViewController.viewControllers = [UINavigationController(rootViewController:WelcomeViewController())]
+        splitViewController.viewControllers = [UINavigationController(rootViewController:WelcomeViewController(coder: nil))]
         return splitViewController
     }()
 

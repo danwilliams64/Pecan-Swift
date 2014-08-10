@@ -20,6 +20,7 @@
 		376BE48F1994A592003B3131 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BE48E1994A592003B3131 /* RegisterViewController.swift */; };
 		37EF39B61995F2CE00210578 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF39B51995F2CE00210578 /* BaseTableViewCell.swift */; };
 		37EF39B81995F41300210578 /* TextEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF39B71995F41300210578 /* TextEntryCell.swift */; };
+		37EF39BA1997913F00210578 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF39B91997913F00210578 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		376BE48E1994A592003B3131 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		37EF39B51995F2CE00210578 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		37EF39B71995F41300210578 /* TextEntryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEntryCell.swift; sourceTree = "<group>"; };
+		37EF39B91997913F00210578 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		985F6F7225F64F5EB92B2B6B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -227,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				376BE48E1994A592003B3131 /* RegisterViewController.swift */,
+				37EF39B91997913F00210578 /* LoginViewController.swift */,
 			);
 			path = RegisterViewController;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				376BE48519941C3C003B3131 /* WelcomeTableViewHeaderView.swift in Sources */,
 				376BE489199420F2003B3131 /* ArrayDataSource.swift in Sources */,
 				376BE47D19941A84003B3131 /* BaseViewController.swift in Sources */,
+				37EF39BA1997913F00210578 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

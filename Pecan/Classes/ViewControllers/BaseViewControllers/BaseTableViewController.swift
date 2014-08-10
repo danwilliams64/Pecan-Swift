@@ -18,4 +18,5 @@ class BaseTableViewController: BaseViewController {
         super.viewDidLoad()
         view.addSubview(tableView)
     }
+    
 }

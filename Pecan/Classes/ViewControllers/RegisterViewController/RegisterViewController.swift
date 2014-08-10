@@ -11,8 +11,8 @@ import UIKit
 class RegisterViewController: BaseTableViewController {
     
     // MARK: - Properties
-    var dataSource: ArrayDataSource = {
-        let dataSource = ArrayDataSource(items: ["Email", "Password"], cellIdentifier: TextEntryCell.reuseIdentifier(), configurationBlock: { (cell, item) -> () in
+    lazy var dataSource: ArrayDataSource = {
+        let dataSource = ArrayDataSource(items: ["Email", "Password", "Name"], cellIdentifier: TextEntryCell.reuseIdentifier(), configurationBlock: { (cell, item) -> () in
             let textEntryCell = cell as TextEntryCell
             textEntryCell.cellLabel.text = item as String
             textEntryCell.textField.placeholder = item as String
@@ -21,8 +21,8 @@ class RegisterViewController: BaseTableViewController {
         return dataSource
     }()
     
-    override init() {
-        super.init(nibName: nil, bundle: nil)
+    override init(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
         title = "New Account"
     }
     
@@ -34,13 +34,13 @@ class RegisterViewController: BaseTableViewController {
     
     // MARK: - Private
     
-    func setUpTableView() {
+    private func setUpTableView() {
         tableView.registerClass(TextEntryCell.self, forCellReuseIdentifier: TextEntryCell.reuseIdentifier())
         tableView.dataSource = dataSource
         tableView.rowHeight = UITableViewAutomaticDimension
     }
     
-    func createButtonTapped(sender: UIBarButtonItem) {
+    private func createButtonTapped(sender: UIBarButtonItem) {
         NSLog("Button title: \(sender.title)")
     }
 }

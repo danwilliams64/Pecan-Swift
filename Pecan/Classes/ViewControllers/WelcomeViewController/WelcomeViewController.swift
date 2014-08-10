@@ -23,15 +23,15 @@ class WelcomeViewController: BaseTableViewController, UITableViewDelegate {
     }()
     
     // MARK: - UIViewController
-
-    override init() {
-        super.init(nibName: nil, bundle: nil)
+    override init(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
         title = "Welcome"
     }
     
+    
     override func viewDidLoad() {
-        setUpTableView()
         super.viewDidLoad()
+        setUpTableView()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -51,8 +51,10 @@ class WelcomeViewController: BaseTableViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         switch indexPath.row {
+            case 0:
+                splitViewController.showDetailViewController(LoginViewController(coder: nil), sender: nil)
             case 1:
-                splitViewController .showDetailViewController(RegisterViewController(), sender: nil)
+                splitViewController.showDetailViewController(RegisterViewController(coder: nil), sender: nil)
             default:
                 println("Default")
         }
