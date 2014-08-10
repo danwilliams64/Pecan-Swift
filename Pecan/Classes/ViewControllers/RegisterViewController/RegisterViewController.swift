@@ -8,18 +8,10 @@
 
 import UIKit
 
-class RegisterViewController: BaseTableViewController {
+class RegisterViewController: BaseTableViewController, UITextFieldDelegate {
     
     // MARK: - Properties
-    var dataSource: ArrayDataSource = {
-        let dataSource = ArrayDataSource(items: ["Email", "Password", "Name"], cellIdentifier: TextEntryCell.reuseIdentifier(), configurationBlock: { (cell, item) -> () in
-            let textEntryCell = cell as TextEntryCell
-            textEntryCell.cellLabel.text = item as String
-            textEntryCell.textField.placeholder = item as String
-        })
-        
-        return dataSource
-    }()
+    var dataSource: ArrayDataSource?
 
     var forgottenPasswordButton: UIButton = {
         let button: AnyObject! = UIButton.buttonWithType(.System)
@@ -39,10 +31,25 @@ class RegisterViewController: BaseTableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Create", style: .Done, target: self, action: "createButtonTapped:")
     }
     
+    // MARK: - UITextFieldDelegate
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        if let currentIndexPath = tableView.indexPathForCellSubView(textField) {
+            tableView.makeNextTextFieldBecomeFirstResponderAfterIndexPath(currentIndexPath)
+        }
+        return true
+    }
+    
     // MARK: - Private
     
     private func setUpTableView() {
         tableView.registerClass(TextEntryCell.self, forCellReuseIdentifier: TextEntryCell.reuseIdentifier())
+        dataSource = ArrayDataSource(items: ["Email", "Password", "Name"], cellIdentifier: TextEntryCell.reuseIdentifier(), configurationBlock: { (cell, item) -> () in
+            let textEntryCell = cell as TextEntryCell
+            textEntryCell.cellLabel.text = item as String
+            textEntryCell.textField.placeholder = item as String
+            textEntryCell.textField.delegate = self
+        })
+        
         tableView.dataSource = dataSource
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = forgottenPasswordButton
@@ -50,7 +57,8 @@ class RegisterViewController: BaseTableViewController {
         forgottenPasswordButton.titleLabel.textAlignment = .Center
     }
     
-    private func createButtonTapped(sender: UIBarButtonItem) {
-        NSLog("Button title: \(sender.title)")
+    func createButtonTapped(sender: UIBarButtonItem) {
+        let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forItem: 0, inSection: 0)) as TextEntryCell
+        println("Email is: \(cell.textContents)")
     }
 }

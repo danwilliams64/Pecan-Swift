@@ -10,6 +10,8 @@ import UIKit
 
 class TextEntryCell: BaseTableViewCell {
     
+    // MARK: - Properties
+    
     var cellLabel: UILabel = {
         let label = UILabel(forAutoLayout: ())
         label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
@@ -22,12 +24,20 @@ class TextEntryCell: BaseTableViewCell {
         return textField
     }()
     
+    var textContents: String {
+        return textField.text
+    }
+    
+    // MARK: - Initializers
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String!) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(cellLabel)
         contentView.addSubview(textField)
         selectionStyle = .None
     }
+    
+    // MARK: - UIViewController
     
     override func updateConstraints() {
         super.updateConstraints()
@@ -42,6 +52,8 @@ class TextEntryCell: BaseTableViewCell {
         textField.autoPinEdge(.Right, toEdge: .Right, ofView: contentView, withOffset:-10)
         textField.autoSetDimension(.Height, toSize: 44)
     }
+    
+    // MARK: - Class Methods
     
     override class func requiresConstraintBasedLayout() -> Bool {
         return true

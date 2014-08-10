@@ -8,18 +8,11 @@
 
 import UIKit
 
-class LoginViewController: BaseTableViewController {
+class LoginViewController: BaseTableViewController, UITextFieldDelegate {
     
     // MARK: - Properties
     
-    var dataSource: ArrayDataSource = {
-        let dataSource = ArrayDataSource(items: ["Email", "Password"], cellIdentifier: TextEntryCell.reuseIdentifier(), configurationBlock: { (cell, item) -> () in
-            let textEntryCell = cell as TextEntryCell
-            textEntryCell.cellLabel.text = item as String
-            textEntryCell.textField.placeholder = item as String
-        })
-        return dataSource
-    }()
+    var dataSource: ArrayDataSource?
     
     // MARK: - Initializer
     
@@ -36,13 +29,30 @@ class LoginViewController: BaseTableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign In", style: .Done, target: self, action: "signInButtonTapped:")
     }
     
+    // MARK: - UITextField Delegate
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        if let currentIndexPath = tableView.indexPathForCellSubView(textField) {
+            tableView.makeNextTextFieldBecomeFirstResponderAfterIndexPath(currentIndexPath)
+        }
+    
+        return true
+    }
+    
     // MARK: - Private
     
-    private func signInButtonTapped(sender: UIBarButtonItem) {
+    func signInButtonTapped(sender: UIBarButtonItem) {
         println("sign in button tapped")
     }
     
     private func setUpTableView() {
+        dataSource = ArrayDataSource(items: ["Email", "Password"], cellIdentifier: TextEntryCell.reuseIdentifier(), configurationBlock: { (cell, item) -> () in
+            let textEntryCell = cell as TextEntryCell
+            textEntryCell.cellLabel.text = item as String
+            textEntryCell.textField.placeholder = item as String
+            textEntryCell.textField.delegate = self
+        })
+        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.dataSource = dataSource
         tableView.registerClass(TextEntryCell.self, forCellReuseIdentifier: TextEntryCell.reuseIdentifier())
