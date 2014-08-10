@@ -23,11 +23,11 @@ class WelcomeViewController: BaseTableViewController, UITableViewDelegate {
     }()
     
     // MARK: - UIViewController
+    
     override init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
         title = "Welcome"
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

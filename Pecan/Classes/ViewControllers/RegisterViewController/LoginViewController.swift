@@ -21,17 +21,22 @@ class LoginViewController: BaseTableViewController {
         return dataSource
     }()
     
+    // MARK: - Initializer
+    
     override init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
         title = "Pecan"
     }
 
+    // MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign In", style: .Done, target: self, action: "signInButtonTapped:")
     }
+    
+    // MARK: - Private
     
     private func signInButtonTapped(sender: UIBarButtonItem) {
         println("sign in button tapped")

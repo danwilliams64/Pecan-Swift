@@ -10,13 +10,13 @@ import UIKit
 
 class BaseTableViewController: BaseViewController {
     
-    lazy var tableView: UITableView = {
-        return UITableView(frame: self.view.bounds, style: .Grouped)
-    }()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.addSubview(tableView)
+    let tableView = UITableView(frame: UIScreen.mainScreen().bounds, style: .Grouped)
+    
+    override func loadView() {
+        let baseView = UIView(frame: UIScreen.mainScreen().bounds)
+        baseView.addSubview(tableView)
+        tableView.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsetsZero)
+        view = baseView
     }
     
 }
