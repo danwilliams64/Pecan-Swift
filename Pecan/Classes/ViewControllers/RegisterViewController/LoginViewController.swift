@@ -42,7 +42,7 @@ class LoginViewController: BaseTableViewController, UITextFieldDelegate {
     // MARK: - Private
     
     func signInButtonTapped(sender: UIBarButtonItem) {
-        println("sign in button tapped")
+        ProgressHUD.show("Signing in", interaction: false)
     }
     
     private func setUpTableView() {
@@ -51,11 +51,15 @@ class LoginViewController: BaseTableViewController, UITextFieldDelegate {
             textEntryCell.cellLabel.text = item as String
             textEntryCell.textField.placeholder = item as String
             textEntryCell.textField.delegate = self
+            
+            if item as String == "Password" {
+                textEntryCell.textField.secureTextEntry = true
+            }
         })
-        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.dataSource = dataSource
         tableView.registerClass(TextEntryCell.self, forCellReuseIdentifier: TextEntryCell.reuseIdentifier())
+        tableView.keyboardDismissMode = .OnDrag
     }
 
 }

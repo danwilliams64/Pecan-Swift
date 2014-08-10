@@ -48,6 +48,10 @@ class RegisterViewController: BaseTableViewController, UITextFieldDelegate {
             textEntryCell.cellLabel.text = item as String
             textEntryCell.textField.placeholder = item as String
             textEntryCell.textField.delegate = self
+            
+            if item as String == "Password" {
+                textEntryCell.textField.secureTextEntry = true
+            }
         })
         
         tableView.dataSource = dataSource
@@ -58,7 +62,6 @@ class RegisterViewController: BaseTableViewController, UITextFieldDelegate {
     }
     
     func createButtonTapped(sender: UIBarButtonItem) {
-        let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forItem: 0, inSection: 0)) as TextEntryCell
-        println("Email is: \(cell.textContents)")
+        
     }
 }

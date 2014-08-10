@@ -13,3 +13,4 @@
 //#endif
 
 #import <PureLayout.h>
+#import <ProgressHUD.h>
