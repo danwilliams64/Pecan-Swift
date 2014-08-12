@@ -19,4 +19,19 @@ class BaseTableViewController: BaseViewController {
         view = baseView
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onContentSizeChange:", name: UIContentSizeCategoryDidChangeNotification, object: nil)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func onContentSizeChange(notification: NSNotification) {
+        tableView.reloadData()
+    }
+    
 }
